@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 11:09:36 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/22 11:10:26 by sshahary         ###   ########.fr       */
+/*   Created: 2023/12/22 11:07:26 by sshahary          #+#    #+#             */
+/*   Updated: 2023/12/22 11:08:47 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRACTOL_H
+# define FRACTOL_H
+# include <unistd.h>
+# include <stdio.h>
 
-#include "fractol.h"
 
-int	main()
-{
-	write(1, "0k", 2);
-	return (0);
-}
+#endif

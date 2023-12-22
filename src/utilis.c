@@ -6,11 +6,11 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 13:49:36 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/22 14:49:33 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:35:51 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 double	ft_atof(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:07:26 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/22 14:48:32 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:34:41 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include "lib/MLX42/include/MLX42/MLX42.h"
+# include "../lib/MLX42/include/MLX42/MLX42.h"
+# include "../mylib/ft_print/ft_printf.h"
 
 # define WIDTH 800
 # define HEIGHT 600

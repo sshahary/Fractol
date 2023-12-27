@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:09:36 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/22 17:54:14 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/27 11:03:41 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,11 @@ void	draw_mandelbrot(mlx_image_t *img)
 			z.real = 0;
 			z.imag = 0;
 			color = mandelbrot(c, z, 0) * 255 / MAX_ITER;
-			// Assuming 32-bit pixels with an alpha channel
 			uint32_t pixel_offset = (y * img->width + x);
 			img->pixels[pixel_offset * 4] = color;
 			img->pixels[pixel_offset * 4 + 1] = color;
 			img->pixels[pixel_offset * 4 + 2] = color;
-			img->pixels[pixel_offset * 4 + 3] = 255; // Alpha channel
+			img->pixels[pixel_offset * 4 + 3] = 255;
 			x++;
 		}
 		y++;
@@ -72,16 +71,11 @@ int	main(void)
 		ft_printf("Error: Failed to create image.\n");
 		return (1);
 	}
-
 	draw_mandelbrot(img);
-
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		ft_printf("ERROR");
 	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
-
-	return (0);
+	return (EXIT_SUCCESS);
 }
-
-

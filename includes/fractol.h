@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:07:26 by sshahary          #+#    #+#             */
-/*   Updated: 2024/01/02 16:43:31 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:19:22 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,48 @@ typedef struct s_fractal
 	unsigned int	b;
 }				t_fractal;
 
-void	update_render(t_fractal *fractal);
-void	fractal_init(t_fractal *fractal, int id, double c_x, double c_y);
-void	select_fractal(t_fractal *fractal);
+void			update_render(t_fractal *fractal);
+void			fractal_init(t_fractal *fractal, int id, double c_x, double c_y);
+void			select_fractal(t_fractal *fractal);
+
+
+//color
+unsigned int	map_color(int iter, t_fractal *fractal);
+void			pick_color(t_fractal *fractal);
+unsigned int	darken_color(t_fractal *fractal);
+
+void			fractal_init(t_fractal *fractal, int id, double c_x, double c_y);
+void			select_fractal(t_fractal *fractal);
+void			update_render(t_fractal *fractal);
+void			mandelbrot_data_init(t_fractal *fractal);
+void			mandelbrot_render(t_fractal *fractal);
+void			julia_data_init(t_fractal *fractal, double c_x, double c_y);
+void			randomize_julia(t_fractal *fractal_ptr);
+void			julia_render(t_fractal *fractal);
+void			tricorn_render(t_fractal *fractal);
+void			tricorn_data_init(t_fractal *fractal);
+
+
+void			keyhook(void *param);
+void			scrollhook(double xdelta, double ydelta, void	*param);
+void			cursorhook(double xmouse, double ymouse, void	*param);
+t_complex		complex_sum(t_complex a, t_complex b);
+t_complex		complex_sqr(t_complex a);
+t_complex		complex_power(t_complex a, int n);
+t_complex		complex_conjugate(t_complex a);
+
+void			error(void);
+void			param_error(void);
+void			guide(void);
+double			ft_atod(char *str);
+
+void			julia_render_glitch(t_fractal *fractal);
+void			mandelbrot_render_glitch(t_fractal *fractal);
+void			tricorn_render_glitch(t_fractal *fractal);
+void			julia_data_init_glitch(t_fractal *fractal, double c_x,
+					double c_y);
+void			mandelbrot_data_init_glitch(t_fractal *fractal);
+void			tricorn_data_init_glitch(t_fractal *fractal);
 
 
 #endif

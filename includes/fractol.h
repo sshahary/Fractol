@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:07:26 by sshahary          #+#    #+#             */
-/*   Updated: 2024/01/02 17:19:22 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:14:15 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef enum sets
 	JULIA2,
 	TRICORN2,
 }	t_sets;
-
 
 typedef struct s_fractal
 {

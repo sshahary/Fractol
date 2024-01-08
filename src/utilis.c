@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 13:49:36 by sshahary          #+#    #+#             */
-/*   Updated: 2024/01/02 17:18:16 by sshahary         ###   ########.fr       */
+/*   Created: 2023/12/27 11:29:38 by sshahary          #+#    #+#             */
+/*   Updated: 2024/01/07 15:30:38 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,36 +40,58 @@ double	ft_atod(char *str)
 	return ((integer_part + decimal_part) * sign);
 }
 
-void	error(void)
+void	set_screen_size(t_fractol *f)
 {
-	puts(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
+	if (ft_strncmp("J", f->set, 1) == 0)
+	{
+		f->start_x = -2.0;
+		f->end_x = 2.0;
+		f->start_y = -2.0;
+		f->end_y = 2.0;
+	}
+	else
+	{
+		f->start_x = -4.0;
+		f->end_x = 4.0;
+		f->start_y = -4.0;
+		f->end_y = f->start_y + (f->end_x - f->start_x) * HEIGHT / WID;
+	}
 }
 
-void	guide(void)
+static void	init_cs(t_color *fractol)
 {
-	puts("Controls:\n" \
-	"\tpress \033[1m\033[38;5;110mESC\033[0m to exit\n" \
-	"\tpress \033[1m\033[38;5;110marrow keys\033[0m to move\n" \
-	"\tuse \033[1m\033[38;5;110mmouse scroll\033[0m for zoom\n" \
-	"\tpress \033[1m\033[38;5;110mTAB\033[0m to change fractal\n" \
-	"\tpress \033[1m\033[38;5;110mC\033[0m to change color\n" \
-	"\t keep \033[1m\033[38;5;110mG\033[0m pressed for glitchy colors\n" \
-	"\nJulia Set constants:\n" \
-	"\tpress \033[1m\033[38;5;110mR\033[0m to randomize \n"\
-	"\tuse \033[1m\033[38;5;110mleft_shift + scroll\033[0m " \
-	"to increase or decrease\n" \
-	"\tuse \033[1m\033[38;5;110mleft_ctrl + mouse \033[0m"\
-	"to change constants based on relative mouse position\n");
+	fractol->shift = -999;
+	fractol->r_set = 0;
+	fractol->g_set = 0;
+	fractol->b_set = 0;
+	fractol->hue = 0;
+	fractol->saturation = 0;
+	fractol->brightness = 0;
+	fractol->contrast = 100;
+	fractol->c = 0;
+	fractol->x = 0;
+	fractol->m = 0;
+	fractol->r = 0;
+	fractol->g = 0;
+	fractol->b = 0;
+	fractol->palette = 0;
 }
 
-void	param_error(void)
+void	init(t_fractol *fractol)
 {
-	puts("\n\nError - incorrect params\n\n" \
-"params:\t \033[1m\033[38;5;110mmandelbrot\n" \
-"\t \033[1m\033[38;5;110mtricorn\n" \
-"\t julia \033[0m\033[38;5;115m<real> <imaginary>\033[0m\n\n" \
-"examples:\n" \
-"./fractol julia \033[38;5;115m0.285 0.01\033[0m\n" \
-"./fractol julia \033[38;5;115m-0.8 0.156\n");
+	fractol->x = 0;
+	fractol->y = 0;
+	fractol->end_y = 0;
+	fractol->end_x = 0;
+	fractol->start_y = 0;
+	fractol->start_x = 0;
+	fractol->ci = 0;
+	fractol->cr = 0;
+	fractol->m_zi = 0;
+	fractol->m_zr = 0;
+	fractol->err = 0;
+	fractol->index = 0;
+	fractol->zoom = 1.48;
+	set_screen_size(fractol);
+	init_cs(&fractol->css);
 }
